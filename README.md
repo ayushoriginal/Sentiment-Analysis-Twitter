@@ -1,13 +1,15 @@
 # Sentiment-Analysis-Twitter
 
+-Ayush Pareek
+
 [![Join the chat at https://gitter.im/Sentiment-Analysis-Twitter/Lobby](https://badges.gitter.im/Sentiment-Analysis-Twitter/Lobby.svg)](https://gitter.im/Sentiment-Analysis-Twitter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 Microblogging today has become a very popular communication tool among Internet users. Millions of messages are appearing daily in popular web-sites that provide services for microblogging such as Twitter, Tumblr, Facebook. Authors of those messages write about their life, share opinions on variety of topics and discuss current issues. Because of a free format of messages and an easy accessibility
 of microblogging platforms, Internet users tend to shift from traditional communication tools (such as traditional blogs or mailing lists) to microblogging services. As more and more users post about products and services they use, or express their political and religious views, microblogging web-sites become valuable sources of people’s opinions and sentiments. Such data can be efficiently used
 for marketing or social studies.[1]
-
-![Sentiments](http://i.imgur.com/57Yhewq.png)
+[Political Sentiments](http://i.imgur.com/KtsvI4f.jpg)
+<!--![Sentiments](http://i.imgur.com/57Yhewq.png)-->
 
 
 ##  1  Introduction
@@ -29,8 +31,28 @@ Sentiment Analysis finds its application in a variety of domains.
 Figure: Sentiment Analysis can be useful to understand how the mood of the public affects election results
 
 
-### 1.2 Twitter 
-## Usage
+### 1.2 Characteristic features of Tweets 
+
+From the perspective of Sentiment
+Analysis, we discuss a few characteristics of Twitter:
+
+**Length of a Tweet**
+     The maximum length of a Twitter message is 140 characters. This means that we can practically consider a tweet to be a single sentence, void of complex grammatical constructs. This is a vast difference from traditional subjects of Sentiment Analysis, such as movie reviews. 
+     
+**Language used**
+     Twitter is used via a variety of media including SMS and mobile phone apps. Because of this and the 140-character limit, language used in Tweets tend be more colloquial, and filled with slang and misspellings. Use of hashtags also gained popularity on Twitter and is a primary feature in any given tweet. Our analysis shows that there are approximately 1-2 hashtags per tweet, as shown in Table 3 . 
+     
+**Data availability**
+     Another difference is the magnitude of data available. With the Twitter API, it is easy to collect millions of tweets for training. There also exist a few datasets that have automatically and manually labelled the tweets [2] [3]. 
+     
+**Domain of topics**
+     People often post about their likes and dislikes on social media. These are not al concentrated around one topic. This makes twitter a unique place to model a generic classifier as opposed to domain specific classifiers that could be build datasets such as movie reviews. 
+     
+     
+## 2  Related Work
+
+### 2.1
+Go, Bhayani and Huang (2009) were among the first to explore sentiment analysis on Twitter [2]. They classify Tweets for a query term into negative or positive sentiment. They collect training dataset automatically from Twitter. To collect positive and negative tweets, they query twitter for happy and sad emoticons. Happy emoticons are different versions of smiling face, like ":)", ":-)", ": )", ":D", "=)" etc. Sad emoticons include frowns, like ":(", ":-(", ":(" etc. They try various features – unigrams, bigrams and Part-of-Speech and train their classifier on various machine learning algorithms – Naive Bayes, Maximum Entropy and Scalable Vector Machines and compare it against a baseline classifier by counting the number of positive and negative words from a publicly available corpus. They report that Bigrams alone and Part-of-Speech Tagging are not helpful and that Naive Bayes Classifier gives the best results.
 
 - Extract the fc-7 image features using:
 ```
@@ -87,15 +109,7 @@ python predict.py --image_path="Data/sample.jpg" --question="Which animal is thi
 
 ## References
 - [Pak, Alexander, and Patrick Paroubek. "Twitter as a Corpus for Sentiment Analysis and Opinion Mining." LREc. Vol. 10. 2010.][1]
-- [Torch implementation of VQA][2]
-- [Neural Caption Generator with Attention][8]
+- [Alec Go, Richa Bhayani, and Lei Huang. Twitter sentiment classification using distant supervision. _Processing_, pages 1-6, 2009.][2]
+- [Niek Sanders. Twitter sentiment corpus. http://www.sananalytics.com/lab/twitter-sentiment/. Sanders Analytics.][3]
 
-[1]: http://arxiv.org/abs/1505.02074
-[2]: https://github.com/abhshkdz/neural-vqa/
-[3]: https://github.com/tensorflow/tensorflow
-[4]: http://www.h5py.org/
-[5]: http://mscoco.org/
-[6]: http://visualqa.org/
-[7]: https://github.com/ry/tensorflow-vgg16
-[8]: https://github.com/jazzsaxmafia/show_attend_and_tell.tensorflow
-[9]: https://drive.google.com/folderview?id=0B30fmeZ1slbBU1JSRHdiWkF4NUk&usp=sharing
+
