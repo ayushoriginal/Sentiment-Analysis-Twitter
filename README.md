@@ -1,12 +1,11 @@
 # Sentiment-Analysis-Twitter
 
 [![Join the chat at https://gitter.im/Sentiment-Analysis-Twitter/Lobby](https://badges.gitter.im/Sentiment-Analysis-Twitter/Lobby.svg)](https://gitter.im/Sentiment-Analysis-Twitter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+Microblogging today has become a very popular communication tool among Internet users. Millions of messages are appearing daily in popular web-sites that provide services for microblogging such as Twitter, Tumblr, Facebook. Authors of those messages write about their life, share opinions on variety of topics and discuss current issues. Because of a free format of messages and an easy accessibility
+of microblogging platforms, Internet users tend to shift from traditional communication tools (such as traditional blogs or mailing lists) to microblogging services. As more and more users post about products and services they use, or express their political and religious views, microblogging web-sites become valuable sources of people’s opinions and sentiments. Such data can be efficiently used
+for marketing or social studies.
 
-[![Join the chat at https://gitter.im/neural-vqa-tensorflow/Lobby](https://badges.gitter.im/neural-vqa-tensorflow/Lobby.svg)](https://gitter.im/neural-vqa-tensorflow/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-This is a Tensorflow implementation of the VIS + LSTM visual question answering model from the paper [Exploring Models and Data for Image Question Answering][1]
-by Mengye Ren, Ryan Kiros & Richard Zemel. The model architectures vaires slightly from the original - the image embedding is plugged into the last lstm step (after the question) instead of the first. The LSTM model uses the same hyperparameters as those in the [Torch implementation of neural-VQA][2]. 
-![Model architecture](http://i.imgur.com/Jvixx2W.jpg)
+(http://imgur.com/a/qbPGq)
 
 ## Requirements
 - Python 2.7.6
