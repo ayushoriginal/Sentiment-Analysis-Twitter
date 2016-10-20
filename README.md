@@ -1,11 +1,13 @@
 # Sentiment-Analysis-Twitter
 
 [![Join the chat at https://gitter.im/Sentiment-Analysis-Twitter/Lobby](https://badges.gitter.im/Sentiment-Analysis-Twitter/Lobby.svg)](https://gitter.im/Sentiment-Analysis-Twitter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 Microblogging today has become a very popular communication tool among Internet users. Millions of messages are appearing daily in popular web-sites that provide services for microblogging such as Twitter, Tumblr, Facebook. Authors of those messages write about their life, share opinions on variety of topics and discuss current issues. Because of a free format of messages and an easy accessibility
 of microblogging platforms, Internet users tend to shift from traditional communication tools (such as traditional blogs or mailing lists) to microblogging services. As more and more users post about products and services they use, or express their political and religious views, microblogging web-sites become valuable sources of people’s opinions and sentiments. Such data can be efficiently used
-for marketing or social studies.
+for marketing or social studies.[1]
 
-(http://imgur.com/a/qbPGq)
+![Sentiments](http://imgur.com/a/qbPGq)
 
 ## Requirements
 - Python 2.7.6
@@ -72,7 +74,7 @@ python predict.py --image_path="Data/sample.jpg" --question="Which animal is thi
 | ![](http://i.imgur.com/7ZZi2Xp.jpg)      | What sport is this? | skateboarding, parasailing, surfing|
 
 ## References
-- [Exploring Models and Data for Image Question Answering][1]
+- [Pak, Alexander, and Patrick Paroubek. "Twitter as a Corpus for Sentiment Analysis and Opinion Mining." LREc. Vol. 10. 2010.][1]
 - [Torch implementation of VQA][2]
 - [Neural Caption Generator with Attention][8]
 
