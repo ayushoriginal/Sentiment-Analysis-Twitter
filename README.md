@@ -7,7 +7,7 @@ Microblogging today has become a very popular communication tool among Internet 
 of microblogging platforms, Internet users tend to shift from traditional communication tools (such as traditional blogs or mailing lists) to microblogging services. As more and more users post about products and services they use, or express their political and religious views, microblogging web-sites become valuable sources of people’s opinions and sentiments. Such data can be efficiently used
 for marketing or social studies.[1]
 
-![Sentiments](http://imgur.com/a/qbPGq)
+![Sentiments](http://i.imgur.com/57Yhewq.png)
 
 ## Requirements
 - Python 2.7.6
