@@ -9,15 +9,27 @@ for marketing or social studies.[1]
 
 ![Sentiments](http://i.imgur.com/57Yhewq.png)
 
-## Requirements
-- Python 2.7.6
+
+##  1  Introduction
+
+###  1.1 Applications of  Sentiment Analysis
+Sentiment Analysis finds its application in a variety of domains.
+
+**Business**
+     Businesses may use sentiment analysis on blogs, review websites etc. to judge the market response of a product. This information may also be used for intelligent placement of advertisements. For example, if product "A" and "B" are competitors and an online merchant business "M" sells both, then "M" may advertise for "A" if the user displays positive sentiments towards "A", its brand or related products, or "B" if they display negative sentiments towards "A". 
+     
+**Financial Markets**
+     Public opinion regarding companies can be used to predict performance of their stocks in the financial markets. If people have a positive opinion about a product that a company A has launched, then the share prices of A are likely to go higher and vice versa. Public opinion can be used as an additional feature in existing models that try to predict market performances based on historical data. 
+
+**Government**
+     Governments and politicians can actively monitor public sentiments as a response to their current policies, speeches made during campaigns etc. This will help them make create better public awareness regarding policies and even drive campaigns intelligently. 
+     
+![Sentiment Analysis can be useful to understand how the mood of the public affects election results](http://i.imgur.com/QI1IiDX.png)
+
+Figure: Sentiment Analysis can be useful to understand how the mood of the public affects election results
 
 
-
-#### Datasets
-- Download the [MSCOCO][5] train+val images and [VQA][6] data using `Data/download_data.sh`. Extract all the downloaded zip files inside the `Data` folder.
-- Download the [pretrained VGG-16 tensorflow model][7] and save it in the `Data` folder.
-
+### 1.2 Twitter 
 ## Usage
 
 - Extract the fc-7 image features using:
