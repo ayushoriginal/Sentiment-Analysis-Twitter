@@ -18,14 +18,98 @@ for marketing or social studies.[1]
 ###  1.1 Applications of  Sentiment Analysis
 Sentiment Analysis finds its application in a variety of domains.
 
-**Business**
-     Businesses may use sentiment analysis on blogs, review websites etc. to judge the market response of a product. This information may also be used for intelligent placement of advertisements. For example, if product "A" and "B" are competitors and an online merchant business "M" sells both, then "M" may advertise for "A" if the user displays positive sentiments towards "A", its brand or related products, or "B" if they display negative sentiments towards "A". 
-     
-**Financial Markets**
-     Public opinion regarding companies can be used to predict performance of their stocks in the financial markets. If people have a positive opinion about a product that a company A has launched, then the share prices of A are likely to go higher and vice versa. Public opinion can be used as an additional feature in existing models that try to predict market performances based on historical data. 
 
-**Government**
-     Governments and politicians can actively monitor public sentiments as a response to their current policies, speeches made during campaigns etc. This will help them make create better public awareness regarding policies and even drive campaigns intelligently. 
+**A. Online Commerce**
+
+The most general use of sentiment analysis is in ecommerce
+activities. Websites allows their users to
+submit their experience about shopping and product
+qualities. They provide summary for the product and
+different features of the product by assigning ratings or
+scores. Customers can easily view opinions and
+recommendation information on whole product as well
+as specific product features. Graphical summary of the
+overall product and its features is presented to users.
+Popular merchant websites like amazon.com provides
+review from editors and also from customers with
+rating information. http://tripadvisor.in is a popular
+website that provides reviews on hotels, travel
+destinations. They contain 75 millions opinions and
+reviews worldwide. Sentiment analysis helps such
+websites by converting dissatisfied customers into
+promoters by analyzing this huge volume of opinions.
+
+
+**B. Voice of the Market (VOM)**
+
+Voice of the Market is about determining what
+customers are feeling about products or services of
+competitors. Accurate and timely information from the
+Voice of the Market helps in gaining competitive
+advantage and new product development. Detection of
+such information as early as possible helps in direct and
+target key marketing campaigns. Sentiment Analysis
+helps corporate to get customer opinion in real-time.
+This real-time information helps them to design new
+marketing strategies, improve product features and can
+predict chances of product failure.
+Zhang et al.proposed weakness finder system
+which can help manufacturers find their product
+weakness from Chinese reviews by using aspects based
+sentiment analysis. There are some commercial and
+free sentiment analysis services are available, Radiant6,
+Sysomos, Viralheat, Lexalytics, etc. are commercial
+services. Some free tools like www.tweettfeel.com,
+www.socialmention.com are also available.
+
+
+**C. Voice of the Customer (VOC)**
+
+Voice of the Customer is concern about what
+individual customer is saying about products or
+services. It means analyzing the reviews and feedback
+of the customers. VOC is a key element of Customer
+Experience Management. VOC helps in identifying
+new opportunities for product inventions. Extracting
+customer opinions also helps identify functional
+requirements of the products and some non-functional
+requirements like performance and cost.
+
+
+**D. Brand Reputation Management**
+
+Brand Reputation Management is concern about
+managing your reputation in market. Opinions from
+customers or any other parties can damage or enhance
+your reputation. Brand Reputation Management (BRM)
+is a product and company focused rather than customer.
+Now, one-to-many conversations are taking place
+online at a high rate. That creates opportunities for
+organizations to manage and strengthen brand
+reputation. Now Brand perception is determined not
+only by advertising, public relations and corporate
+messaging. Brands are now a sum of the conversations
+about them. Sentiment analysis helps in determining
+how company’s brand, product or service is being
+perceived by community online.
+
+
+**E. Government**
+
+Sentiment analysis helps government in assessing
+their strength and weaknesses by analyzing opinions
+from public. For example, “If this is the state, how do
+you expect truth to come out? The MP who is
+investigating 2g scam himself is deeply corrupt.”.
+this example clearly shows negative sentiment about
+government.
+Whether it is tracking citizens’ opinions on a new
+108 system, identifying strengths and weaknesses in a
+recruitment campaign in government job, assessing
+success of electronic submission of tax returns, or
+many other areas, we can see the potential for
+sentiment analysis.
+
      
 ![Sentiment Analysis can be useful to understand how the mood of the public affects election results](http://i.imgur.com/QI1IiDX.png)
 
@@ -91,6 +175,8 @@ classifier using various machine-learning algorithms - Naive Bayes, Decision
 Trees and Maximum Entropy.
 
 ![Ayush's Approach](http://i.imgur.com/mXBzrNU.png)
+
+Figure 1: Schematic Block Representation of the Methodology
 
 We use a modularized approach with feature extractor and classification
 algorithm as two independent components. This enables us to experiment with
@@ -179,7 +265,7 @@ datasets. We also give a brief description of pre-processing steps taken.
 
 ![Figure](http://i.imgur.com/KqJnVTx.png)
 
-Figure: Illustration of a Tweet with various features
+Figure 2: Illustration of a Tweet with various features
 
 <div style="text-align:center">
 <table border="1">
@@ -414,24 +500,24 @@ trigrams yield better product-review polarity classification [1].
 As the order of the n-grams increases, they tend to be more and more sparse.
 Based on our experiments, we find that number of bigrams and trigrams increase
 much more rapidly than the number of unigrams with the number of Tweets.
-Figure 5 shows the number of n-grams versus number of Tweets. We can observe
+Figure 4 shows the number of n-grams versus number of Tweets. We can observe
 that bigrams and trigrams increase almost linearly where as unigrams are
 increasing logarithmically.
 
 ![Figure](http://i.imgur.com/j0TyDow.png)
 
-Figure 5: Number of n-grams vs. Number of Tweets
+Figure 4: Number of n-grams vs. Number of Tweets
 
 Because higher order n-grams are sparsely populated, we decide to trim off the
 n-grams that are not seen more than once in the training corpus, because
 chances are that these n-grams are not good indicators of sentiments. After
 the filtering out non-repeating n-grams, we see that the number of n-grams is
-considerably decreased and equals the order of unigrams, as shown in Figure 6
+considerably decreased and equals the order of unigrams, as shown in Figure 5
 .
 
 ![Figure](http://i.imgur.com/JZZ5OPI.png)
 
-Figure 6: Number of repeating n-grams vs. Number of Tweets
+Figure 5: Number of repeating n-grams vs. Number of Tweets
 
 
 
@@ -493,12 +579,12 @@ negative and the words that come farther away do not lie in the scope of
 negation of such cues. We define left and right negativity of a word as the
 chances that meaning of that word is actually the opposite. Left negativity
 depends on the closest negation cue on the left and similarly for Right
-negativity. Figure 9 illustrates the left and right negativity of words in a
+negativity. Figure 7 illustrates the left and right negativity of words in a
 tweet.
 
 ![Figure](http://i.imgur.com/QhtlwPb.png)
 
-Figure 9: Scope of Negation
+Figure 7: Scope of Negation
 
 ##  4  Experimentation
 
@@ -513,11 +599,11 @@ The task of classification of a tweet can be done in two steps - first,
 classifying "neutral" (or "subjective") vs. "objective" tweets and second,
 classifying objective tweets into "positive" vs. "negative" tweets. We also
 trained 2 step classifiers. The accuracies for each of these configuration are
-shown in Figure 10 , we discuss these in detail below.
+shown in Figure 8 , we discuss these in detail below.
 
 ![Figure](http://i.imgur.com/TfYr9Se.png)
 
-Figure 10: Accuracy for Naive Bayes Classifier
+Figure 8: Accuracy for Naive Bayes Classifier
 
 ###  4.1  Naive Bayes
 
@@ -529,7 +615,7 @@ probabilities of all the labels, given that feature and then select the label
 with maximum probability.
 
 The results from training the Naive Bayes classifier are shown below in Figure
-10 . The accuracy of Unigrams is the lowest at 79.67%. The accuracy increases
+8 . The accuracy of Unigrams is the lowest at 79.67%. The accuracy increases
 if we also use Negation detection (81.66%) or higher order n-grams (86.68%).
 We see that if we use both Negation detection and higher order n-grams, the
 accuracy is marginally less than just using higher order n-grams (85.92%). We
@@ -538,14 +624,14 @@ for corresponding single step.
 
 We have also shown Precision versus Recall values for Naive Bayes classifier
 corresponding to different classes – Negative, Neutral and Positive in Figure
-11 . The solid markers show the P-R values for single step classifier and
+9 . The solid markers show the P-R values for single step classifier and
 hollow markers show the affect of using double step classifier. Different
 points are for different feature sets. We can see that both precision as well
 as recall values are higher for single step than that for double step.
 
 ![Figure](http://i.imgur.com/h2IReTP.png)
 
-Figure 11: Precision vs. Recall for Naive Bayes Classifier
+Figure 9: Precision vs. Recall for Naive Bayes Classifier
 
 ###  4.2  Maximum Entropy Classifier
 
@@ -555,7 +641,7 @@ weight vector. The optimal value of which can be found out using the method of
 Lagrange multipliers.
 
   
-The results from training the Naive Bayes classifier are shown below in Figure
+The results from training the Maximum Entropy Classifier are shown below in Figure
 10 . Accuracies follow a similar trend as compared to Naive Bayes classifier.
 Unigram is the lowest at 79.73% and we see an increase for negation detection
 at 80.96%. The maximum is achieved with unigrams, bigrams and trigrams at
@@ -563,13 +649,13 @@ at 80.96%. The maximum is achieved with unigrams, bigrams and trigrams at
 accuracies for double step classifiers are considerably lower.
 
 Precision versus Recall map is also shown for maximum entropy classifier in
-Figure 12 . Here we see that precision of "neutral" class increase by using a
+Figure 10 . Here we see that precision of "neutral" class increase by using a
 double step classifier, but with a considerable decrease in its recall and
 slight fall in precision of "negative" and "positive" classes.
 
 ![Figure](http://i.imgur.com/Ho2wDNW.png)
 
-Figure 12: Precision vs. Recall for Maximum Entropy Classifier
+Figure 10: Precision vs. Recall for Maximum Entropy Classifier
 
 ##  5  Future Work
 
