@@ -4,8 +4,6 @@
 #
 # Adapted from http://www.sananalytics.com/lab/twitter-sentiment/
 #
-# Yogesh Garg
-# yogeshg91@gmail.com
 #
 import csv, getpass, json, os, time, random
 
