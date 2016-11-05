@@ -670,7 +670,7 @@ Figure 10: Precision vs. Recall for Maximum Entropy Classifier
 
 ##  6  Conclusion
 
-In this paper, we create a sentiment classifier for twitter using labelled
+We create a sentiment classifier for twitter using labelled
 data sets. We also investigate the relevance of using a double step classifier
 and negation detection for the purpose of sentiment analysis.
 
