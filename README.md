@@ -1,6 +1,7 @@
 # Sentiment-Analysis-Twitter
 
 ##    -Ayush Pareek
+[Click here to see an introductory presentation given during a rudimentary stage of this project](https://www.slideshare.net/secret/MuWmNWZxYi2l9t)
 
 [![Join the chat at https://gitter.im/Sentiment-Analysis-Twitter/Lobby](https://badges.gitter.im/Sentiment-Analysis-Twitter/Lobby.svg)](https://gitter.im/Sentiment-Analysis-Twitter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
