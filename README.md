@@ -5,6 +5,7 @@
 
 [![Join the chat at https://gitter.im/Sentiment-Analysis-Twitter/Lobby](https://badges.gitter.im/Sentiment-Analysis-Twitter/Lobby.svg)](https://gitter.im/Sentiment-Analysis-Twitter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+### Update: I've sold this project to the AI and Data Science PaaS company OnePanel Inc. who are hosting it as a commercial API here-> https://www.onepanel.io/algorithms/twitter-sentiment-analyzer.html. However, I will continue to publicly host the code for the open-source community.
 
 Microblogging today has become a very popular communication tool among Internet users. Millions of messages are appearing daily in popular web-sites that provide services for microblogging such as Twitter, Tumblr, Facebook. Authors of those messages write about their life, share opinions on variety of topics and discuss current issues. Because of a free format of messages and an easy accessibility
 of microblogging platforms, Internet users tend to shift from traditional communication tools (such as traditional blogs or mailing lists) to microblogging services. As more and more users post about products and services they use, or express their political and religious views, microblogging web-sites become valuable sources of people’s opinions and sentiments. Such data can be efficiently used
@@ -152,7 +153,10 @@ They identify that use of informal and creative language make sentiment analysis
 
 ### 2.3 [Koulompis, Wilson and Moore (2011)](http://www.aclweb.org/website/old_anthology/S/S13/S13-2.pdf#page=526)
 
-They identify that use of informal and creative language make sentiment analysis of tweets a rather different task [5]. They leverage previous work done in hashtags and sentiment analysis to build their classifier. They use Edinburgh Twitter corpus to find out most frequent hashtags. They manually classify these hashtags and use them to in turn classify the tweets. Apart from using n-grams and Part-of-Speech features, they also build a feature set from already existing MPQA subjectivity lexicon and Internet Lingo Dictionary. They report that the best results are seen with n-gram features with lexicon features, while using Part-of-Speech features causes a drop in accuracy.
+They investigated the utility of linguistic features for detecting the sentiment of Twitter messages. They evaluated
+the usefulness of existing lexical resources as well as features that capture information about the informal and creative language
+used in microblogging. They took a supervised approach to the problem, but leverage existing hashtags in the Twitter
+data for building training data.
 
 ### 2.3 [Saif, He and Alani (2012)](http://oro.open.ac.uk/34929/1/76490497.pdf)
 
