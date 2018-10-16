@@ -117,7 +117,7 @@ sentiment analysis.
 
 Figure: Sentiment Analysis can be useful to understand how the mood of the public affects election results
 
-
+   
 ### 1.2 Characteristic features of Tweets 
 
 From the perspective of Sentiment
