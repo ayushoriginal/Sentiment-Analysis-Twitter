@@ -1,8 +1,8 @@
 # Sentiment-Analysis-Twitter
 
 ##    -Ayush Pareek
-[Click here to see a video explaination of this work]
-(https://www.youtube.com/watch?v=rM87H75JNjA&t=363s)
+
+[Click here to see a video about this work](https://www.youtube.com/watch?v=rM87H75JNjA)
 
 [Click here to see an introductory presentation given during a rudimentary stage of this project](https://www.slideshare.net/secret/MuWmNWZxYi2l9t)
 
