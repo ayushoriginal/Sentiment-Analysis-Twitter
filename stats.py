@@ -173,7 +173,7 @@ def stepStats( tweets, num_bins=10, split='easy', fileprefix='' ):
     if split=='equal':
         sizes = [ int((r+1.0)/num_bins*tot_size) for r in range( num_bins ) ]
     elif split=='log':
-        sizes = [ int(2**(math.log(tot_size,2)*(r+1.0)/num_bins) ) for r in range( num_bins ) ]
+        sizes = [int(2 ** (numpy.math.log(tot_size, 2) * (r + 1.0) / num_bins)) for r in range(num_bins)]
     else: # split=='easy'
         sizes = list(range( 0, tot_size, tot_size/num_bins))[1:]+[tot_size]
 
