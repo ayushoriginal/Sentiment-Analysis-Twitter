@@ -34,9 +34,9 @@ def get_user_params():
 def dump_user_params( user_params ):
 
     # dump user params for confirmation
-    print 'Input:    '   + user_params['inList']
-    print 'Output:   '   + user_params['outList']
-    print 'Raw data: '   + user_params['rawDir']
+    print('Input:    '   + user_params['inList'])
+    print('Output:   '   + user_params['outList'])
+    print('Raw data: '   + user_params['rawDir'])
     return
 
 def filter_list( total_list ) :
@@ -74,13 +74,13 @@ def purge_already_fetched( fetch_list, raw_dir ):
             try:
                 parse_tweet_json( tweet_file )
                 count = count + 1
-                print '--> already downloaded #' + item[2]
+                print('--> already downloaded #' + item[2])
             except RuntimeError:
                 rem_list.append( item )
         else:
             rem_list.append( item )
 
-    print 'already fetched :', count
+    print('already fetched :', count)
 
     return rem_list
 
@@ -126,8 +126,8 @@ def download_tweets( fetch_list, raw_dir ):
 
         # print status
         trem = get_time_left_str( idx, fetch_list, download_pause_sec )
-        print '--> downloading tweet #%s (%d of %d) (%s left)' % \
-              (item[2], idx+1, len(fetch_list), trem)
+        print('--> downloading tweet #%s (%d of %d) (%s left)' % \
+              (item[2], idx+1, len(fetch_list), trem))
 
         # pull data
         start = time.time()
@@ -136,14 +136,14 @@ def download_tweets( fetch_list, raw_dir ):
             tweetFile = open(raw_dir + item[2] + '.json', 'w')
             tweetFile.write( tweetStatus.AsJsonString() )
             tweetFile.close()
-        except Exception, e:
-            print 'Cannot download tweet #'+item[2]
-            print e
+        except Exception as e:
+            print('Cannot download tweet #'+item[2])
+            print(e)
         end = time.time()
 
         # stay in Twitter API rate limits
-        print '    pausing %.2f sec to obey Twitter API rate limits' % \
-              (download_pause_sec-(end-start))
+        print('    pausing %.2f sec to obey Twitter API rate limits' % \
+              (download_pause_sec-(end-start)))
         time.sleep( download_pause_sec-(end-start) )
 
     return
@@ -152,7 +152,7 @@ def download_tweets( fetch_list, raw_dir ):
 def parse_tweet_json( filename ):
 
     # read tweet
-    print 'opening: ' + filename
+    print('opening: ' + filename)
     fp = open( filename, 'rb' )
 
     # parse json
@@ -199,20 +199,20 @@ def build_output_corpus( out_filename, raw_dir, total_list ):
                 writer.writerow( full_row )
 
             except RuntimeError:
-                print '--> bad data in tweet #' + item[2]
+                print('--> bad data in tweet #' + item[2])
                 missing_count += 1
 
         else:
-            print '--> missing tweet #' + item[2]
+            print('--> missing tweet #' + item[2])
             missing_count += 1
 
     # indicate success
     if missing_count == 0:
-        print '\nSuccessfully downloaded corpus!'
-        print 'Output in: ' + out_filename + '\n'
+        print('\nSuccessfully downloaded corpus!')
+        print('Output in: ' + out_filename + '\n')
     else:
-        print '\nMissing %d of %d tweets!' % (missing_count, len(total_list))
-        print 'Partial output in: ' + out_filename + '\n'
+        print('\nMissing %d of %d tweets!' % (missing_count, len(total_list)))
+        print('Partial output in: ' + out_filename + '\n')
 
     return
 
@@ -243,15 +243,15 @@ def main():
     # pull only 100 tweets
     #total_list = random.sample( total_list, 100 )
 
-    print 'total tweets : ', len( total_list )
+    print('total tweets : ', len( total_list ))
     fetch_list = purge_already_fetched( total_list, user_params['rawDir'] )
-    print 'fetch tweets : ',  len( fetch_list )
+    print('fetch tweets : ',  len( fetch_list ))
 
     # start fetching data from twitter
     download_tweets( fetch_list, user_params['rawDir'] )
 
     # second pass for any failed downloads
-    print '\nStarting second pass to retry any failed downloads';
+    print('\nStarting second pass to retry any failed downloads');
     fetch_list = purge_already_fetched( total_list, user_params['rawDir'] )
     download_tweets( fetch_list, user_params['rawDir'] )
 

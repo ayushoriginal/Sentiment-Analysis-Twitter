@@ -35,7 +35,7 @@ def k_fold_cross_validation(X, K, randomise = False):
     otherwise its order is preserved in training and validation.
     """
     if randomise: from random import shuffle; X=list(X); shuffle(X)
-    for k in xrange(K):
+    for k in range(K):
         training = [x for i, x in enumerate(X) if i % K != k]
         validation = [x for i, x in enumerate(X) if i % K == k]
         yield training, validation
@@ -90,15 +90,15 @@ def getTrainingAndTestData(tweets, K, k, method, feature_set):
             words_tri  = [ ','.join(map(str,tg)) for tg in nltk.trigrams(words) ]
             n_grams_fd.update( words_tri )
 
-    sys.stderr.write( '\nlen( unigrams ) = '+str(len( unigrams_fd.keys() )) )
+    sys.stderr.write( '\nlen( unigrams ) = '+str(len( list(unigrams_fd.keys()) )) )
 
     #unigrams_sorted = nltk.FreqDist(unigrams).keys()
-    unigrams_sorted = unigrams_fd.keys()
+    unigrams_sorted = list(unigrams_fd.keys())
     #bigrams_sorted = nltk.FreqDist(bigrams).keys()
     #trigrams_sorted = nltk.FreqDist(trigrams).keys()
     if add_ngram_feat > 1 :
         sys.stderr.write( '\nlen( n_grams ) = '+str(len( n_grams_fd )) )
-        ngrams_sorted = [ k for (k,v) in n_grams_fd.items() if v>1]
+        ngrams_sorted = [ k for (k,v) in list(n_grams_fd.items()) if v>1]
         sys.stderr.write( '\nlen( ngrams_sorted ) = '+str(len( ngrams_sorted )) )
 
     def get_word_features(words):
@@ -145,15 +145,15 @@ def getTrainingAndTestData(tweets, K, k, method, feature_set):
     
         right = [0.0] * len(words)
         prev = 0.0
-        for i in reversed(range(0,len(words))):
+        for i in reversed(list(range(0,len(words)))):
             if( negtn[i] ):
                 prev = 1.0
             right[i] = prev
             prev = max( 0.0, prev-0.1)
     
-        return dict( zip(
+        return dict( list(zip(
                         ['neg_l('+w+')' for w in  words] + ['neg_r('+w+')' for w in  words],
-                        left + right ) )
+                        left + right )) )
     
     def counter(func):  #http://stackoverflow.com/questions/13512391/to-count-no-times-a-function-is-called
         @wraps(func)
@@ -210,7 +210,7 @@ def getTrainingAndTestData(tweets, K, k, method, feature_set):
 
 def trainAndClassify( tweets, classifier, method, feature_set, fileprefix ):
 
-    INFO = '_'.join( [str(classifier), str(method)] + [ str(k)+str(v) for (k,v) in feature_set.items()] )
+    INFO = '_'.join( [str(classifier), str(method)] + [ str(k)+str(v) for (k,v) in list(feature_set.items())] )
     if( len(fileprefix)>0 and '_'!=fileprefix[0] ):
         directory = os.path.dirname(fileprefix)
         if not os.path.exists(directory):
@@ -218,7 +218,7 @@ def trainAndClassify( tweets, classifier, method, feature_set, fileprefix ):
         realstdout = sys.stdout
         sys.stdout = open( fileprefix+'_'+INFO+'.txt' , 'w')
 
-    print INFO
+    print(INFO)
     sys.stderr.write( '\n'+ '#'*80 +'\n' + INFO )
 
     if('NaiveBayesClassifier' == classifier):
@@ -232,7 +232,7 @@ def trainAndClassify( tweets, classifier, method, feature_set, fileprefix ):
     elif('SvmClassifier' == classifier):
         CLASSIFIER = nltk.classify.SvmClassifier
         def SvmClassifier_show_most_informative_features( self, n=10 ):
-            print 'unimplemented'
+            print('unimplemented')
         CLASSIFIER.show_most_informative_features = SvmClassifier_show_most_informative_features
         def train_function(v_train):
             return CLASSIFIER.train(v_train)
@@ -244,7 +244,7 @@ def trainAndClassify( tweets, classifier, method, feature_set, fileprefix ):
                 text = nltk.classify.DecisionTreeClassifier.pp(self,depth=i)
                 if len( text.split('\n') ) > n:
                     break
-            print text
+            print(text)
         CLASSIFIER.show_most_informative_features = DecisionTreeClassifier_show_most_informative_features
         def train_function(v_train):
             return CLASSIFIER.train(v_train, entropy_cutoff=0.05, depth_cutoff=100, support_cutoff=10, binary=False)
@@ -258,25 +258,25 @@ def trainAndClassify( tweets, classifier, method, feature_set, fileprefix ):
         classifier_tot = train_function(v_train)
         sys.stderr.write( ' [training complete]' )
         
-        print '######################'
-        print '1 Step Classifier :', classifier
+        print ('######################')
+        print(('1 Step Classifier :', classifier))
         accuracy_tot = nltk.classify.accuracy(classifier_tot, v_test)
-        print 'Accuracy :', accuracy_tot
-        print '######################'
-        print classifier_tot.show_most_informative_features(NUM_SHOW_FEATURES)
-        print '######################'
+        print(('Accuracy :', accuracy_tot))
+        print ('######################')
+        print((classifier_tot.show_most_informative_features(NUM_SHOW_FEATURES)))
+        print ('######################')
 
         # build confusion matrix over test set
         test_truth   = [s for (t,s) in v_test]
         test_predict = [classifier_tot.classify(t) for (t,s) in v_test]
 
-        print 'Accuracy :', accuracy_tot
-        print 'Confusion Matrix'
-        print nltk.ConfusionMatrix( test_truth, test_predict )
+        print(('Accuracy :', accuracy_tot))
+        print ('Confusion Matrix')
+        print((nltk.ConfusionMatrix( test_truth, test_predict )))
 
         accuracies.append( accuracy_tot )
-     print "Accuracies:", accuracies
-     print "Average Accuracy:", sum(accuracies)/FOLDS
+     print(("Accuracies:", accuracies))
+     print(("Average Accuracy:", sum(accuracies)/FOLDS))
 
 
     elif '2step' == method:
@@ -314,36 +314,36 @@ def trainAndClassify( tweets, classifier, method, feature_set, fileprefix ):
         classifier_sen = train_function(v_train_sen)
         sys.stderr.write( ' [training complete]' )
 
-        print '######################'
-        print 'Objectivity Classifier :', classifier
+        print ('######################')
+        print(('Objectivity Classifier :', classifier))
         accuracy_obj = nltk.classify.accuracy(classifier_obj, v_test_obj)
-        print 'Accuracy :', accuracy_obj
-        print '######################'
-        print classifier_obj.show_most_informative_features(NUM_SHOW_FEATURES)
-        print '######################'
+        print(('Accuracy :', accuracy_obj))
+        print ('######################')
+        print((classifier_obj.show_most_informative_features(NUM_SHOW_FEATURES)))
+        print ('######################')
 
         test_truth_obj   = [s for (t,s) in v_test_obj]
         test_predict_obj = [classifier_obj.classify(t) for (t,s) in v_test_obj]
 
-        print 'Accuracy :', accuracy_obj
-        print 'Confusion Matrix'
-        print nltk.ConfusionMatrix( test_truth_obj, test_predict_obj )
+        print('Accuracy :', accuracy_obj)
+        print('Confusion Matrix')
+        print(nltk.ConfusionMatrix( test_truth_obj, test_predict_obj ))
         
-        print '######################'
-        print 'Sentiment Classifier :', classifier
+        print('######################')
+        print('Sentiment Classifier :', classifier)
         accuracy_sen = nltk.classify.accuracy(classifier_sen, v_test_sen)
-        print 'Accuracy :', accuracy_sen
-        print '######################'
-        print classifier_sen.show_most_informative_features(NUM_SHOW_FEATURES)
-        print '######################'
+        print('Accuracy :', accuracy_sen)
+        print('######################')
+        print(classifier_sen.show_most_informative_features(NUM_SHOW_FEATURES))
+        print('######################')
 
         test_truth_sen   = [s for (t,s) in v_test_sen]
         test_predict_sen = [classifier_sen.classify(t) for (t,s) in v_test_sen]
 
-        print 'Accuracy :', accuracy_sen
-        print 'Confusion Matrix'
+        print('Accuracy :', accuracy_sen)
+        print('Confusion Matrix')
         if( len(test_truth_sen) > 0 ):
-            print nltk.ConfusionMatrix( test_truth_sen, test_predict_sen )
+            print(nltk.ConfusionMatrix( test_truth_sen, test_predict_sen ))
 
         v_test_sen2 = [(t,classifier_obj.classify(t)) for (t,s) in v_test_obj]
         test_predict = [classifier_sen.classify(t) if s=='obj' else s for (t,s) in v_test_sen2]
@@ -351,17 +351,17 @@ def trainAndClassify( tweets, classifier, method, feature_set, fileprefix ):
         correct = [ t==p for (t,p) in zip(test_truth, test_predict)]
         accuracy_tot = float(sum(correct))/len(correct) if correct else 0
 
-        print '######################'
-        print '2 - Step Classifier :', classifier
-        print 'Accuracy :', accuracy_tot
-        print 'Confusion Matrix'
-        print nltk.ConfusionMatrix( test_truth, test_predict )
-        print '######################'
+        print('######################')
+        print('2 - Step Classifier :', classifier)
+        print('Accuracy :', accuracy_tot)
+        print('Confusion Matrix')
+        print(nltk.ConfusionMatrix( test_truth, test_predict ))
+        print('######################')
 
         classifier_tot = (classifier_obj, classifier_sen)
         accuracies.append( accuracy_tot )
-     print "Accuracies:", accuracies
-     print "Average Accuracy:", sum(accuracies)/FOLDS
+     print("Accuracies:", accuracies)
+     print("Average Accuracy:", sum(accuracies)/FOLDS)
 
     sys.stderr.write('\nAccuracies :')    
     for k in range(FOLDS):
@@ -420,7 +420,7 @@ def main(argv) :
         negtnVals = [ False ]
 
     if (len( fileprefix )==0 or len( classifierNames )==0 or len( methodNames )==0 or len( ngramVals )==0 or len( negtnVals )==0 ):
-        print __usage__
+        print(__usage__)
         return
     
     tweets1 = sanderstwitter02.getTweetsRawData('sentiment.csv')
@@ -449,8 +449,8 @@ def main(argv) :
                 tweets, classifier=cname, method=mname,
                 feature_set={'ngram':ngramVal, 'negtn':negtnVal},
                 fileprefix=fileprefix+'_'+TIME_STAMP )
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
     sys.stdout.flush()
 
 if __name__ == "__main__":

@@ -9,10 +9,13 @@ queryTerms = {\
 
 def getTweetsRawData( fileName ):
     # read all tweets and labels
-    fp = open( fileName, 'rb' )
+    fp = open( fileName, 'r' )
     reader = csv.reader( fp, delimiter=',', quotechar='"', escapechar='\\' )
     tweets = []
+
+    print("")
     for row in reader:
+        print(row)
         tweets.append( [row[4], row[1], row[0], queryTerms[(row[0]).lower()] ] )
     # treat neutral and irrelevant the same
     for t in tweets:

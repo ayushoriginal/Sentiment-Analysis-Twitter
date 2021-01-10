@@ -46,10 +46,10 @@ punctuations = \
 #Printing functions for info
 def print_config(cfg):
 	for (x, arr) in cfg:
-		print x, '\t',
+		print(x, '\t', end=' ')
 		for a in arr:
-			print a, '\t',
-		print ''
+			print(a, '\t', end=' ')
+		print('')
 
 def print_emoticons():
 	print_config(emoticons)

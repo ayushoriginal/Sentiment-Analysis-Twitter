@@ -52,10 +52,10 @@ def getAllQueries(in_file):
     for row in rd:
         queries.add(row[3])
 
-    print queries
+    print(queries)
 
     for q in queries:
-        print q, "\t",
+        print(q, "\t", end=' ')
 
     return queries
 
